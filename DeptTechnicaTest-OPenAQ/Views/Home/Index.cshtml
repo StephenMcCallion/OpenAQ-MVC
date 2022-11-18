@@ -1,0 +1,54 @@
+﻿@model DeptTechnicaTest_OPenAQ.Models.ViewModels.Home
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>$(document).ready(function () {
+        $('#latestTable').DataTable();
+    });</script>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to OpenAQ application</h1>
+    <h2>To see what the air quality in like in your area, please search via the navigation menu.</h2>
+    <p>Checkout out the latest results below</p>
+</div>
+
+    <table id="latestTable" class="display">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Coordinates</th>
+                <th>Measurements</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (DeptTechnicaTest_OPenAQ.Models.DataModels.LatestResult latest in Model.latestData.results)
+            {
+                <tr>
+                    <td>@latest.location</td>
+                    <td>@latest.city</td>
+                    <td>@latest.country</td>
+                    <td>
+                        Latitude: @latest.coordinates.latitude Longitude: @latest.coordinates.longitude
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (DeptTechnicaTest_OPenAQ.Models.DataModels.LatestMeasurement measurement in latest.measurements)
+                            {
+                                <li>@measurement.parameter</li>
+                                <li>@measurement.lastUpdated.</li>
+                                <li>@measurement.unit</li>
+                                <li>@measurement.value</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+

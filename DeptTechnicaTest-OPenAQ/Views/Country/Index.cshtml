@@ -1,0 +1,61 @@
+﻿@model DeptTechnicaTest_OPenAQ.Models.ViewModels.Country
+@{
+    ViewData["Title"] = "Countries";
+}
+
+<h1>Countries</h1>
+
+<select>
+    @{
+        foreach (DeptTechnicaTest_OPenAQ.Models.DataModels.CountryResult country in Model.CountriesDDL)
+        {
+            <option value="@country.code">@country.name</option>
+        }
+    }
+</select>
+
+    <table id="countriesTable" class="display">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Loacations</th>
+                <th>First Updated</th>
+                <th>Last Update</th>
+                <th>Parameters</th>
+                <th>Count</th>
+                <th>Citites</th>
+                <th>Sources</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DeptTechnicaTest_OPenAQ.Models.DataModels.CountryResult country in Model.CountriesDDL)
+            {
+                <tr>
+                    <td>@country.code</td>
+                    <td>@country.name</td>
+                    <td>@country.locations</td>
+                    <td>@country.firstUpdated</td>
+                    <td>@country.lastUpdated</td>
+                    <td>
+                        <select>
+                            @foreach (string parameter in country.parameters)
+                            {
+                                    <option>@parameter</option>
+                            }
+                        </select>
+                    </td>
+                    <td>@country.count</td>
+                    <td>@country.cities</td>
+                    <td>@country.sources</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#countriesTable').DataTable();
+        });
+    </script>

@@ -1,0 +1,48 @@
+﻿@model DeptTechnicaTest_OPenAQ.Models.ViewModels.City
+
+@{
+    ViewData["Title"] = "Cities";
+}
+
+        <h1>Cities</h1>
+
+        <table id="countriesTable" class="display">
+            <thead>
+                <tr>
+                    <th>country</th>
+                    <th>city</th>
+                    <th>count</th>
+                    <th>locations</th>
+                    <th>First Updated</th>
+                    <th>Last Update</th>
+                    <th>Parameters</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DeptTechnicaTest_OPenAQ.Models.DataModels.CityResult city in Model.cities.results)
+                {
+                    <tr>
+                        <td>@city.country</td>
+                        <td>@city.city</td>
+                        <td>@city.count</td>
+                        <td>@city.locations</td>
+                        <td>@city.firstUpdated</td>
+                        <td>@city.lastUpdated</td>
+                        <td>
+                            <select>
+                                @foreach (string parameter in city.parameters)
+                                {
+                                    <option>@parameter</option>
+                                }
+                            </select>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <script>$(document).ready(function () {
+                $('#latestTable').DataTable();
+            });</script>

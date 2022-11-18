@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>DeptTechnicaTest_OPenAQ</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Interfaces\" />
+    <None Remove="Views\City\" />
+    <None Remove="Views\Country\" />
+    <None Remove="Models\ViewModels\" />
+    <None Remove="Models\DataModels\" />
+    <None Remove="Views\Project\" />
+    <None Remove="Newtonsoft.Json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Views\City\" />
+    <Folder Include="Views\Country\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Models\DataModels\" />
+    <Folder Include="Views\Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+</Project>
