@@ -5,7 +5,19 @@
 }
 
         <h1>Cities</h1>
+<div class="input-group mb-3">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+        @foreach(string keys in Model.cityParams.Keys)
+        {
+            <option>@keys</option>
+        }
+    </select>
 
+    <input class="form-control form-control-lg" type="text" placeholder="Search City" aria-label=".form-control-lg example">
+
+    <button type="button" class="btn btn-primary">Primary</button>
+
+</div>
         <table id="countriesTable" class="display">
             <thead>
                 <tr>
@@ -45,4 +57,5 @@
 
         <script>$(document).ready(function () {
                 $('#latestTable').DataTable();
+                console.log("HELLO WORLD");
             });</script>

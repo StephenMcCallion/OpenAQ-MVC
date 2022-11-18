@@ -25,6 +25,8 @@
     <Folder Include="Views\Project\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="jQuery" Version="3.6.1" />
+    <PackageReference Include="jQuery.Validation" Version="1.19.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 </Project>
